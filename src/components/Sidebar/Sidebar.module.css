@@ -1,0 +1,20 @@
+.sidebar {
+   grid-area: sidebar;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 20px;
+}
+.sidebar__list {
+   margin: 0;
+}
+.sidebar__item {
+   margin: 0 0 16px 0;
+}
+.sidebar__item a {
+   color: #002a2a;
+   font-size: 20px;
+}
+.sidebar__item img {
+   width: 20px;
+   margin: 0 20px 0 0;
+}

@@ -1,0 +1,118 @@
+.dialogs {
+   height: 100%;
+   width: 100%;
+   background-color: #fff;
+   border-radius: 20px;
+   overflow: hidden;
+   display: grid;
+   grid-template-rows: 50px 50px auto 50px;
+   grid-template-columns: 4fr 8fr;
+   grid-template-areas: "title name" "search messages" "list messages" "list send";
+   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.15);
+}
+.dialogs__list,
+.dialogs__title,
+.dialogs__search {
+   border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.dialogs__list {
+   width: 100%;
+   height: 100%;
+   grid-area: list;
+   background-color: #fff;
+   overflow: auto;
+}
+.dialogs__title {
+   grid-area: title;
+   background-color: #ededed;
+   display: flex;
+   align-items: center;
+   padding: 0 0 0 20px;
+   font-size: 24px;
+   color: #002f2f;
+}
+.dialogs__search {
+   grid-area: search;
+   background-color: #f6f6f6;
+   position: relative;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.dialogs__search form {
+   width: 90%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   margin: 0 auto;
+}
+.dialogs__loupe,
+.dialogs__input {
+   height: 30px;
+   background-color: #fff;
+   z-index: 3;
+}
+.dialogs__input:focus ~ .whitePlank {
+   transform: scale(1);
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+.whitePlank {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #fff;
+   transform: scale(0);
+   z-index: 2;
+   transition: transform 0.25s ease 0s;
+}
+.dialogs__loupe {
+   width: 15%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 15px 0 0 15px;
+}
+.dialogs__input {
+   width: 95%;
+   border-radius: 0 15px 15px 0;
+   font-size: 16px;
+}
+.dialogs__loupe img {
+   height: 16px;
+}
+.dialogs__name {
+   grid-area: name;
+   background-color: #ededed;
+}
+.dialogs__messages {
+   grid-area: messages;
+   background-color: #fffbef;
+}
+
+.dialogs__sendmessage {
+   grid-area: send;
+   background-color: #f0f0f0;
+}
+.dialogs__sendmessage form {
+   height: 100%;
+   width: 90%;
+   display: flex;
+   align-items: center;
+   margin: 0 auto;
+}
+.dialogs__input_message {
+   width: 90%;
+   background-color: #fff;
+   height: 30px;
+   border-radius: 15px;
+   padding: 0 20px;
+}
+.dialogs__send {
+   width: 10%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.dialogs__send img {
+   height: 30px;
+}

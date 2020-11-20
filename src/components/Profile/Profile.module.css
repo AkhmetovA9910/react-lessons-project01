@@ -1,0 +1,63 @@
+.profile {
+   margin: 0;
+   overflow: hidden;
+   border-radius: 20px;
+   background-color: #fff;
+   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.15);
+}
+.profile__wallpaper {
+   height: 300px;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   position: relative;
+}
+.profile__wallpaper::before {
+   content: "";
+   position: absolute;
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, #fff 100%);
+   width: 100%;
+   height: 140px;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+}
+.profile__wallpaper img {
+   width: 100%;
+}
+.profile__greeting {
+   position: absolute;
+   background-color: #318ce7;
+   color: #fff;
+   font-size: 28px;
+   padding: 10px 16px;
+   border-radius: 10px;
+   font-weight: 700;
+   letter-spacing: 1px;
+   bottom: 20%;
+   left: 30px;
+   z-index: 2;
+}
+.profile__body {
+   position: relative;
+   margin: -50px 0 0 0;
+   display: flex;
+   padding: 10px 20px;
+   align-items: center;
+   z-index: 3;
+}
+.profile__info {
+   display: flex;
+   flex-direction: column;
+}
+.profile__name,
+.profile__email {
+   font-size: 20px;
+   margin: 0 0 10px 0;
+}
+.profile__picture img {
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   margin: 0 30px 0 0;
+}

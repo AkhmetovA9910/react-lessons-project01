@@ -1,0 +1,16 @@
+.sidebar__item {
+   margin: 0 0 16px 0;
+}
+.sidebar__item a {
+   color: #002a2a;
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+}
+.sidebar__item a.active {
+   color: #318ce7;
+}
+.sidebar__item span {
+   font-size: 20px;
+   margin: 0px 20px 0px 0px;
+}
