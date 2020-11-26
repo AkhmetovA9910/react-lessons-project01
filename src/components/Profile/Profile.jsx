@@ -1,8 +1,9 @@
 import background from './../../img/profile-background.jpg';
-import avatar from './../../img/avatar.jpg';
+import avatar from './../../img/profile-pictures/avatar.jpg';
+import MyPosts from './MyPosts/MyPosts';
 import s from './Profile.module.css';
 
-let Profile = () => {
+let Profile = (props) => {
   return (
     <div className={`grid__element content ${s.profile}`}>
       <div className={s.profile__wallpaper}>
@@ -16,6 +17,7 @@ let Profile = () => {
           <div className={s.profile__email}>E-mail</div>
         </div>
       </div>
+      <MyPosts state={props.state} />
     </div>
   );
 }

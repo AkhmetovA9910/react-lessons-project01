@@ -13,7 +13,10 @@
 .dialogs__list,
 .dialogs__title,
 .dialogs__search {
+   position: relative;
    border-right: 1px solid rgba(0, 0, 0, 0.1);
+   box-shadow: 1px 0 8px 0px rgba(0, 0, 0, 0.08);
+   z-index: 2;
 }
 .dialogs__list {
    width: 100%;
@@ -24,12 +27,13 @@
 }
 .dialogs__title {
    grid-area: title;
-   background-color: #ededed;
+   background-color: #e8e8e8;
    display: flex;
    align-items: center;
    padding: 0 0 0 20px;
    font-size: 24px;
    color: #002f2f;
+   z-index: 3;
 }
 .dialogs__search {
    grid-area: search;
@@ -83,15 +87,51 @@
 .dialogs__name {
    grid-area: name;
    background-color: #ededed;
+   display: flex;
+   align-items: center;
+   padding: 0 0 0 12px;
 }
-.dialogs__messages {
+.dialogs__currentpicture {
+   flex: 0 0 35px;
+   height: 35px;
+   border-radius: 50%;
+   position: relative;
+   overflow: hidden;
+   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.dialogs__currentpicture img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+.dialogs__currentinfo {
+   padding: 0 0 0 10px;
+   display: flex;
+   flex-direction: column;
+}
+.dialogs__currentname {
+   font-size: 18px;
+}
+.dialogs__currentstatus {
+   font-size: 10px;
+   font-weight: 500;
+   color: seagreen;
+   margin: 0 0 0 6px;
+}
+.dialogs__messagesarea {
    grid-area: messages;
-   background-color: #fffbef;
+   background-color: #e5ddd5;
+   display: flex;
+   flex-direction: column;
 }
 
 .dialogs__sendmessage {
    grid-area: send;
    background-color: #f0f0f0;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .dialogs__sendmessage form {
    height: 100%;
@@ -107,12 +147,16 @@
    border-radius: 15px;
    padding: 0 20px;
 }
-.dialogs__send {
+.dialogs__sendbutton,
+.dialogs__smile {
    width: 10%;
    display: flex;
    align-items: center;
    justify-content: center;
 }
-.dialogs__send img {
+.dialogs__sendbutton img {
+   height: 30px;
+}
+.dialogs__smile img {
    height: 30px;
 }

@@ -1,0 +1,35 @@
+.posts {
+   display: flex;
+   flex-direction: column;
+   margin: 20px 0px 0px 0px;
+   padding: 20px;
+}
+.posts__title {
+   font-size: 26px;
+}
+.posts__newpost {
+   margin: 10px 0px 10px 0px;
+   display: flex;
+   flex-direction: column;
+}
+.posts__textarea {
+   width: 100%;
+   min-height: 70px;
+   background-color: #e8e8e8;
+   resize: none;
+   border-radius: 16px;
+   margin: 0px 0px 10px 0px;
+   padding: 10px;
+   font-size: 14px;
+}
+.posts__send {
+   align-self: flex-end;
+   width: 80px;
+   height: 40px;
+   color: #fff;
+   font-size: 20px;
+   background-color: #44a965;
+   border-radius: 8px;
+   padding: 10px 0;
+   line-height: 0;
+}

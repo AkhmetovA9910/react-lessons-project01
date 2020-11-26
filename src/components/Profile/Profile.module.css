@@ -1,9 +1,9 @@
 .profile {
-   margin: 0;
    overflow: hidden;
    border-radius: 20px;
    background-color: #fff;
    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.15);
+   position: relative;
 }
 .profile__wallpaper {
    height: 300px;
@@ -61,3 +61,10 @@
    border-radius: 50%;
    margin: 0 30px 0 0;
 }
+/* ::-webkit-scrollbar {
+} */
+.profile::-webkit-scrollbar-track {
+   margin: 20px 0;
+}
+/* ::-webkit-scrollbar-thumb {
+} */

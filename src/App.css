@@ -84,17 +84,18 @@ body {
 }
 
 .container {
-   height: 100vh;
+   min-height: 100%;
    max-width: 1210px;
    margin: 0 auto;
    display: grid;
-   grid-template-rows: 70px auto 0px;
+   grid-template-rows: 70px 204px auto;
    grid-template-columns: 2fr 10fr;
    grid-template-areas:
       "header header"
       "sidebar content"
-      "footer footer";
+      "item content";
    grid-gap: 20px;
+   padding: 0px 0px 20px 0px;
 }
 
 .content {
