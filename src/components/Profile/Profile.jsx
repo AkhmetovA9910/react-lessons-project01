@@ -17,7 +17,12 @@ let Profile = (props) => {
           <div className={s.profile__email}>E-mail</div>
         </div>
       </div>
-      <MyPosts state={props.state} />
+      <MyPosts
+        posts={props.profilePage.posts}
+        newPostText={props.profilePage.newPostText}
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
+      />
     </div>
   );
 }

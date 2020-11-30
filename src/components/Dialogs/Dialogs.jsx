@@ -7,8 +7,8 @@ import MessageItem from './MessageItem/MessageItem';
 
 let Dialogs = (props) => {
 
-  let dialogElements = props.state.dialogs.map((dialog) => <DialogItem itemPath={`/dialogs/${dialog.id}/`} dialogImage={dialog.img} dialogName={dialog.name} dialogLastMessage={dialog.message} />);
-  let messageElements = props.state.messages.map(message => <MessageItem msgOwner={message.owner} msgText={message.text} />);
+  let dialogElements = props.dialogsPage.dialogs.map((dialog) => <DialogItem itemPath={`/dialogs/${dialog.id}/`} dialogImage={dialog.img} dialogName={dialog.name} dialogLastMessage={dialog.message} />);
+  let messageElements = props.dialogsPage.messages.map(message => <MessageItem msgOwner={message.owner} msgText={message.text} />);
 
   return (
     <div className={`grid__element content ${s.dialogs}`}>
@@ -24,7 +24,7 @@ let Dialogs = (props) => {
         {dialogElements}
       </div>
       <div className={s.dialogs__name}>
-        <div className={s.dialogs__currentpicture}><img src={props.state.dialogs[0].img} /></div>
+        <div className={s.dialogs__currentpicture}><img src={props.dialogsPage.dialogs[0].img} /></div>
         <div className={s.dialogs__currentinfo}>
           <div className={s.dialogs__currentname}>Kevin</div>
           <div className={s.dialogs__currentstatus}>online</div>
