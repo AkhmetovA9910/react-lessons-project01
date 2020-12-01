@@ -38,21 +38,25 @@ let store = {
       profilePage: {
          posts: [
             {
+               id: 0,
                text: "My first post ever!!!",
                likes: 10,
                dislikes: 3
             },
             {
+               id: 1,
                text: "Subscribe me!",
                likes: 11,
                dislikes: 2
             },
             {
+               id: 2,
                text: "Hello everyone))!",
                likes: 5,
                dislikes: 0
             },
             {
+               id: 3,
                text: "Happy birthday to ME!;)",
                likes: 29,
                dislikes: 1
@@ -87,12 +91,14 @@ let store = {
    dispatch(action) {
       if (action.type === ADD_POST) {
          let postText = this._state.profilePage.newPostText;
-         if (postText != "" && postText != undefined && postText != null) {
+         if (postText !== "" && postText !== undefined && postText !== null) {
             this._state.profilePage.posts.push({
+               id: this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id + 1,
                text: postText,
                likes: 0,
                dislikes: 0
             });
+            console.log(this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id);
             this._callSubscriber();
             this._state.profilePage.newPostText = "";
          }
@@ -109,5 +115,7 @@ let store = {
 
 export const addPostActionCreator = () => ({ type: ADD_POST });
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+
+window.store = store;
 
 export default store;
