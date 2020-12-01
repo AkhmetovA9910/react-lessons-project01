@@ -14,7 +14,12 @@ function App(props) {
       <div className="grid__container container">
         <Header />
         <Sidebar />
-        <Route path="/dialogs" render={() => <Dialogs dialogsPage={props.state.dialogsPage} />} />
+        <Route path="/dialogs" render={() =>
+          <Dialogs
+            dialogsPage={props.state.dialogsPage}
+            dispatch={props.dispatch}
+          />}
+        />
         <Route path="/profile" render={() =>
           <Profile
             profilePage={props.state.profilePage}

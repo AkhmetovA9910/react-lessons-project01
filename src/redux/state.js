@@ -1,5 +1,10 @@
+import dialogsReducer from "./dialogsReducer";
+import profileReducer from "./profileReducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SEND_MESSAGE = "SEND-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let store = {
    _state: {
@@ -33,7 +38,8 @@ let store = {
                owner: "they",
                text: "It's alright. I think he did'not make it on purpose. You really shoud tlk to him"
             }
-         ]
+         ],
+         newMessageText: ""
       },
       profilePage: {
          posts: [
@@ -71,42 +77,11 @@ let store = {
       return this._state;
    },
 
-   // addPost() {
-   //    let postText = this._state.profilePage.newPostText;
-   //    if (postText != "" && postText != undefined && postText != null) {
-   //       this._state.profilePage.posts.push({
-   //          text: postText,
-   //          likes: 0,
-   //          dislikes: 0
-   //       });
-   //       this._callSubscriber();
-   //       this._state.profilePage.newPostText = "";
-   //    }
-   // },
-   // updateNewPostText(newText) {
-   //    this._state.profilePage.newPostText = newText;
-   //    this._callSubscriber();
-   // },
-
    dispatch(action) {
-      if (action.type === ADD_POST) {
-         let postText = this._state.profilePage.newPostText;
-         if (postText !== "" && postText !== undefined && postText !== null) {
-            this._state.profilePage.posts.push({
-               id: this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id + 1,
-               text: postText,
-               likes: 0,
-               dislikes: 0
-            });
-            console.log(this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id);
-            this._callSubscriber();
-            this._state.profilePage.newPostText = "";
-         }
-      }
-      else if (action.type === UPDATE_NEW_POST_TEXT) {
-         this._state.profilePage.newPostText = action.newText;
-         this._callSubscriber();
-      }
+      this._state.profilePage = profileReducer(this._state.profilePage, action);
+      this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
+      this._callSubscriber();
    },
    subscribe(observer) {
       this._callSubscriber = observer;
@@ -115,6 +90,8 @@ let store = {
 
 export const addPostActionCreator = () => ({ type: ADD_POST });
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
+export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text });
 
 window.store = store;
 

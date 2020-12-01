@@ -132,6 +132,8 @@
    grid-area: send;
    background-color: #f0f0f0;
    border-top: 1px solid rgba(0, 0, 0, 0.1);
+   display: flex;
+   align-items: center;
 }
 .dialogs__sendmessage form {
    height: 100%;
@@ -145,7 +147,8 @@
    background-color: #fff;
    height: 30px;
    border-radius: 15px;
-   padding: 0 20px;
+   padding: 3px 20px 0 20px;
+   resize: none;
 }
 .dialogs__sendbutton,
 .dialogs__smile {

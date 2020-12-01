@@ -1,5 +1,10 @@
 .post {
-   display: flex;
+   display: grid;
+   grid-template-rows: 80px auto;
+   grid-template-columns: 80px auto;
+   grid-template-areas:
+      "picture body"
+      "null body";
    width: 100%;
    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -7,13 +12,12 @@
    border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 .post__userpicture {
-   flex: 0 0 60px;
-   height: 60px;
+   grid-area: picture;
    border-radius: 50%;
    position: relative;
    overflow: hidden;
    border: 1px solid rgba(0, 0, 0, 0.2);
-   margin: 10px 20px 10px 20px;
+   margin: 10px;
 }
 .post__userpicture img {
    position: absolute;
@@ -24,17 +28,19 @@
    object-fit: cover;
 }
 .post__body {
-   flex: 0 0 auto;
+   grid-area: body;
    display: flex;
    flex-direction: column;
 }
 .post__text {
+   max-width: 100%;
    font-size: 20px;
    margin: 24px 20px 10px 0;
+   display: block;
 }
 .post__activity {
    display: flex;
-   padding: 0 0 0 10px;
+   padding: 0 0 10px 10px;
 }
 .post__like,
 .post__dislike {

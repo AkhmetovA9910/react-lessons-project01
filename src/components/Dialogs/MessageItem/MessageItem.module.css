@@ -2,16 +2,16 @@
    width: 50%;
    margin: 10px 20px 0px 20px;
    padding: 8px 12px;
-   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 .message__item.me {
    background-color: #fff;
-   border-radius: 18px 0 18px 18px;
+   border-radius: 8px 0 8px 8px;
    align-self: flex-end;
 }
 .message__item.they {
    background-color: #d8ecff;
-   border-radius: 0 18px 18px 18px;
+   border-radius: 0 8px 8px 8px;
 }
 .message__text {
    font-size: 18px;
