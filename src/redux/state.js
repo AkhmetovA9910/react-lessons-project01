@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
 let store = {
    _state: {
       dialogsPage: {
@@ -58,25 +61,46 @@ let store = {
          newPostText: ""
       }
    },
+   _callSubscriber() { },
+
    getState() {
       return this._state;
    },
-   _callSubscriber() { },
-   addPost() {
-      let postText = this._state.profilePage.newPostText;
-      if (postText != "" && postText != undefined && postText != null) {
-         this._state.profilePage.posts.push({
-            text: postText,
-            likes: 0,
-            dislikes: 0
-         });
-         this._callSubscriber();
-         this._state.profilePage.newPostText = "";
+
+   // addPost() {
+   //    let postText = this._state.profilePage.newPostText;
+   //    if (postText != "" && postText != undefined && postText != null) {
+   //       this._state.profilePage.posts.push({
+   //          text: postText,
+   //          likes: 0,
+   //          dislikes: 0
+   //       });
+   //       this._callSubscriber();
+   //       this._state.profilePage.newPostText = "";
+   //    }
+   // },
+   // updateNewPostText(newText) {
+   //    this._state.profilePage.newPostText = newText;
+   //    this._callSubscriber();
+   // },
+
+   dispatch(action) {
+      if (action.type === ADD_POST) {
+         let postText = this._state.profilePage.newPostText;
+         if (postText != "" && postText != undefined && postText != null) {
+            this._state.profilePage.posts.push({
+               text: postText,
+               likes: 0,
+               dislikes: 0
+            });
+            this._callSubscriber();
+            this._state.profilePage.newPostText = "";
+         }
       }
-   },
-   updateNewPostText(newText) {
-      this._state.profilePage.newPostText = newText;
-      this._callSubscriber();
+      else if (action.type === UPDATE_NEW_POST_TEXT) {
+         this._state.profilePage.newPostText = action.newText;
+         this._callSubscriber();
+      }
    },
    subscribe(observer) {
       this._callSubscriber = observer;
