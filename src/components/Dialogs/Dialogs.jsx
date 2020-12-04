@@ -4,7 +4,7 @@ import send from './../../img/messages-icons/send-button.svg';
 import smile from './../../img/messages-icons/smile.svg';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/MessageItem';
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/state';
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/store';
 
 let Dialogs = (props) => {
 
