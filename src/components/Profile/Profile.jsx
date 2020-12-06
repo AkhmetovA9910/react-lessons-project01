@@ -1,6 +1,6 @@
 import background from './../../img/profile-background.jpg';
 import avatar from './../../img/profile-pictures/avatar.jpg';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import s from './Profile.module.css';
 
 let Profile = (props) => {
@@ -17,7 +17,8 @@ let Profile = (props) => {
           <div className={s.profile__email}>E-mail</div>
         </div>
       </div>
-      <MyPosts
+      <MyPostsContainer
+        store={props.store}
         posts={props.profilePage.posts}
         newPostText={props.profilePage.newPostText}
         dispatch={props.dispatch}
