@@ -6,12 +6,12 @@ let MyPostsContainer = (props) => {
 
    let addPost = () => {
       let action = addPostActionCreator();
-      props.dispatch(action);
+      props.store.dispatch(action);
    };
 
    let updateNewPostText = (text) => {
       let action = updateNewPostTextActionCreator(text);
-      props.dispatch(action);
+      props.store.dispatch(action);
    };
 
    return (

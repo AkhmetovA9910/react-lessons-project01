@@ -4,11 +4,10 @@ import send from './../../img/messages-icons/send-button.svg';
 import smile from './../../img/messages-icons/smile.svg';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/MessageItem';
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/store';
 
 let Dialogs = (props) => {
 
-  let dialogElements = props.dialogsPage.dialogs.map(
+  let dialogElements = props.dialogs.map(
     dialog =>
       <DialogItem
         itemPath={`/dialogs/${dialog.id}/`}
@@ -17,14 +16,14 @@ let Dialogs = (props) => {
         dialogLastMessage={dialog.message}
       />
   );
-  let messageElements = props.dialogsPage.messages.map(message => <MessageItem msgOwner={message.owner} msgText={message.text} />);
+  let messageElements = props.messages.map(message => <MessageItem msgOwner={message.owner} msgText={message.text} />);
 
   let onNewMessageTextChange = (e) => {
     let text = e.target.value;
-    props.dispatch(updateNewMessageTextActionCreator(text));
+    props.updateNewMessageText(text);
   };
   let onSendMessageClick = () => {
-    props.dispatch(sendMessageActionCreator());
+    props.sendMessage();
   };
 
   return (
@@ -41,7 +40,7 @@ let Dialogs = (props) => {
         {dialogElements}
       </div>
       <div className={s.dialogs__name}>
-        <div className={s.dialogs__currentpicture}><img src={props.dialogsPage.dialogs[0].img} /></div>
+        <div className={s.dialogs__currentpicture}><img src={props.dialogs[0].img} /></div>
         <div className={s.dialogs__currentinfo}>
           <div className={s.dialogs__currentname}>Kevin</div>
           <div className={s.dialogs__currentstatus}>online</div>
@@ -56,7 +55,7 @@ let Dialogs = (props) => {
           onChange={onNewMessageTextChange}
           className={`${s.dialogs__input} ${s.dialogs__input_message}`}
           placeholder="Type a message..."
-          value={props.dialogsPage.newMessageText}
+          value={props.newMessageText}
         />
         <div onClick={onSendMessageClick} className={`${s.dialogs__sendbutton} sendbutton`}><img src={send} /></div>
       </div>

@@ -17,12 +17,7 @@ let Profile = (props) => {
           <div className={s.profile__email}>E-mail</div>
         </div>
       </div>
-      <MyPostsContainer
-        store={props.store}
-        posts={props.profilePage.posts}
-        newPostText={props.profilePage.newPostText}
-        dispatch={props.dispatch}
-      />
+      <MyPostsContainer store={props.store} />
     </div>
   );
 }
