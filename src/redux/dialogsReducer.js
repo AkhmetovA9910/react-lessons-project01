@@ -24,10 +24,12 @@ let initialState = {
    ],
    messages: [
       {
+         id: 1,
          owner: "me",
          text: "Yep. What about you? Is it alright?"
       },
       {
+         id: 2,
          owner: "they",
          text: "It's alright. I think he did'not make it on purpose. You really shoud tlk to him"
       }
@@ -37,23 +39,29 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
    switch (action.type) {
-      case SEND_MESSAGE: {
-         let stateCopy = { ...state };
-         stateCopy.messages = [...state.messages];
-         let messageText = stateCopy.newMessageText;
+      case SEND_MESSAGE:
+         let messageText = state.newMessageText;
          if (messageText !== "" && messageText !== undefined && messageText !== null) {
-            stateCopy.messages.push({
-               owner: "me",
-               text: messageText
-            });
-            stateCopy.newMessageText = "";
+            return {
+               ...state,
+               messages: [
+                  ...state.messages,
+                  {
+                     id: state.messages[state.messages.length - 1].id + 1,
+                     owner: "me",
+                     text: messageText
+                  }
+               ],
+               newMessageText: ""
+            };
          }
-         return stateCopy;
-      }
+         return state;
+
       case UPDATE_NEW_MESSAGE_TEXT: {
-         let stateCopy = { ...state };
-         stateCopy.newMessageText = action.newMessageText;
-         return stateCopy;
+         return {
+            ...state,
+            newMessageText: action.newMessageText
+         };
       }
       default:
          return state;

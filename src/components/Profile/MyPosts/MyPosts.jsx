@@ -3,7 +3,7 @@ import PostItem from './PostItem/PostItem';
 
 let MyPosts = (props) => {
    let postElements = props.posts.map(
-      (post) => <PostItem text={post.text} likes={post.likes} dislikes={post.dislikes} />
+      (post) => <PostItem key={post.id} text={post.text} likes={post.likes} dislikes={post.dislikes} />
    );
 
    let onSendPostClick = () => {

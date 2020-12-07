@@ -10,13 +10,14 @@ let Dialogs = (props) => {
   let dialogElements = props.dialogs.map(
     dialog =>
       <DialogItem
+        key={dialog.id}
         itemPath={`/dialogs/${dialog.id}/`}
         dialogImage={dialog.img}
         dialogName={dialog.name}
         dialogLastMessage={dialog.message}
       />
   );
-  let messageElements = props.messages.map(message => <MessageItem msgOwner={message.owner} msgText={message.text} />);
+  let messageElements = props.messages.map(message => <MessageItem key={message.id} msgOwner={message.owner} msgText={message.text} />);
 
   let onNewMessageTextChange = (e) => {
     let text = e.target.value;
