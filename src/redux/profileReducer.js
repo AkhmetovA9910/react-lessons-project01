@@ -1,30 +1,61 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const profileReducer = (state, action) => {
+let initialState = {
+   posts: [
+      {
+         id: 0,
+         text: "My first post ever!!!",
+         likes: 10,
+         dislikes: 3
+      },
+      {
+         id: 1,
+         text: "Subscribe me!",
+         likes: 11,
+         dislikes: 2
+      },
+      {
+         id: 2,
+         text: "Hello everyone))!",
+         likes: 5,
+         dislikes: 0
+      },
+      {
+         id: 3,
+         text: "Happy birthday to ME!;)",
+         likes: 29,
+         dislikes: 1
+      },
+   ],
+   newPostText: ""
+};
+
+const profileReducer = (state = initialState, action) => {
    switch (action.type) {
-      case ADD_POST:
-         let postText = state.newPostText;
+      case ADD_POST: {
+         let stateCopy = { ...state };
+         stateCopy.posts = [...state.posts];
+         let postText = stateCopy.newPostText;
          if (postText !== "" && postText !== undefined && postText !== null) {
-            state.posts.push({
-               id: state.posts[state.posts.length - 1].id + 1,
+            stateCopy.posts.push({
+               id: stateCopy.posts[stateCopy.posts.length - 1].id + 1,
                text: postText,
                likes: 0,
                dislikes: 0
             });
-            state.newPostText = "";
+            stateCopy.newPostText = "";
          }
-         return state;
-         break;
-
-      case UPDATE_NEW_POST_TEXT:
-         state.newPostText = action.newText;
-         return state;
-         break;
+         return stateCopy;
+      }
+      case UPDATE_NEW_POST_TEXT: {
+         let stateCopy = { ...state };
+         stateCopy.newPostText = action.newText;
+         return stateCopy;
+      }
 
       default:
          return state;
-         break;
    }
 };
 

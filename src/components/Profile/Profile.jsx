@@ -3,7 +3,7 @@ import avatar from './../../img/profile-pictures/avatar.jpg';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import s from './Profile.module.css';
 
-let Profile = (props) => {
+let Profile = () => {
   return (
     <div className={`grid__element content ${s.profile}`}>
       <div className={s.profile__wallpaper}>
@@ -17,7 +17,7 @@ let Profile = (props) => {
           <div className={s.profile__email}>E-mail</div>
         </div>
       </div>
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer />
     </div>
   );
 }
