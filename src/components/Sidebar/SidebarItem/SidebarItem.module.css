@@ -1,6 +1,9 @@
 .sidebar__item {
    margin: 0 0 16px 0;
 }
+.sidebar__item:last-child {
+   margin: 0 0 0 0;
+}
 .sidebar__item a {
    color: #002a2a;
    font-size: 20px;
@@ -12,5 +15,6 @@
 }
 .sidebar__item span {
    font-size: 20px;
-   margin: 0px 20px 0px 0px;
+   margin: 0px 16px 0px 0px;
+   flex: 0 0 20px;
 }

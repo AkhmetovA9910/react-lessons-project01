@@ -1,3 +1,4 @@
+import React from 'react';
 import background from './../../img/profile-background.jpg';
 import avatar from './../../img/profile-pictures/avatar.jpg';
 import MyPostsContainer from './MyPosts/MyPostsContainer';

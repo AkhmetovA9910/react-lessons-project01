@@ -25,18 +25,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon_messages:before {
+.icon_users:before {
   content: "\e900";
 }
-.icon_music:before {
+.icon_messages:before {
   content: "\e901";
 }
-.icon_news:before {
+.icon_music:before {
   content: "\e902";
 }
-.icon_profile:before {
+.icon_news:before {
   content: "\e903";
 }
-.icon_settings:before {
+.icon_profile:before {
   content: "\e904";
+}
+.icon_settings:before {
+  content: "\e905";
 }

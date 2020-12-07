@@ -1,16 +1,15 @@
+import React from 'react';
 import s from './Sidebar.module.css';
 import './../../img/sidebar-icons/iconfont.css';
 import SidebarItem from './SidebarItem/SidebarItem';
 
-let Sidebar = () => {
+let Sidebar = (props) => {
+  let sidebarItems = props.sidebarItems.map((item) => <SidebarItem key={item.id} itemPath={item.path} itemIcon={item.iconClass} itemName={item.itemName} />);
+
   return (
     <nav className={`grid__element ${s.sidebar}`}>
       <div className={s.sidebar__list}>
-        <SidebarItem itemPath="/profile/" itemIcon="icon_profile" itemName="Profile" />
-        <SidebarItem itemPath="/dialogs/" itemIcon="icon_messages" itemName="Messages" />
-        <SidebarItem itemPath="/news/" itemIcon="icon_news" itemName="News" />
-        <SidebarItem itemPath="/music/" itemIcon="icon_music" itemName="Music" />
-        <SidebarItem itemPath="/settings/" itemIcon="icon_settings" itemName="Settings" />
+        {sidebarItems}
       </div>
     </nav>
   );

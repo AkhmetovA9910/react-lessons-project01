@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './Dialogs.module.css';
 import loupe from './../../img/messages-icons/loupe.svg';
 import send from './../../img/messages-icons/send-button.svg';
