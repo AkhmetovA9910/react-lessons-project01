@@ -53,12 +53,13 @@ let Dialogs = (props) => {
       <div className={s.dialogs__sendmessage}>
         <div className={s.dialogs__smile}><img src={smile} /></div>
         <textarea
+          tabIndex="1"
           onChange={onNewMessageTextChange}
           className={`${s.dialogs__input} ${s.dialogs__input_message}`}
           placeholder="Type a message..."
           value={props.newMessageText}
         />
-        <div onClick={onSendMessageClick} className={`${s.dialogs__sendbutton} sendbutton`}><img src={send} /></div>
+        <button tabIndex="2" onClick={onSendMessageClick} className={`${s.dialogs__sendbutton} sendbutton`}><img src={send} /></button>
       </div>
     </div>
   );
